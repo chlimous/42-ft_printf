@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/24 21:22:35 by chlimous	       #+#    #+#	      */
-/*   Updated: 2023/12/18 16:05:14 by chlimous         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:08:33 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
