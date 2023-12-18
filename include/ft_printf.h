@@ -6,15 +6,15 @@
 /*   By: chlimous <chlimous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 02:02:19 by chlimous          #+#    #+#             */
-/*   Updated: 2023/12/01 22:20:27 by chlimous         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:51:52 by chlimous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
 # include "utils.h"
+# include <stdarg.h>
 
 int		ft_printf(const char *str, ...);
 size_t	formatid_char(int c);
