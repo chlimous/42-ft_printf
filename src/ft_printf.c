@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/22 02:39:15 by chlimous	       #+#    #+#	      */
-/*   Updated: 2023/12/01 22:44:03 by chlimous         ###   ########.fr       */
+/*   Updated: 2023/12/18 01:41:29 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,30 +25,26 @@ static int	is_percent_terminated(const char *str)
 
 static size_t	call_format(va_list args, char identifier)
 {
-	size_t	size;
-
-	size = 0;
 	if (identifier == 'c')
-		return (size + formatid_char(va_arg(args, int)));
+		return (formatid_char(va_arg(args, int)));
 	else if (identifier == 's')
-		return (size + formatid_string(va_arg(args, char *)));
+		return (formatid_string(va_arg(args, char *)));
 	else if (identifier == 'p')
-		return (size + formatid_ptr(va_arg(args, void *), 0));
+		return (formatid_ptr(va_arg(args, void *), 0));
 	else if (identifier == 'd' || identifier == 'i')
-		return (size + formatid_intbase(va_arg(args, int), "0123456789", 0));
+		return (formatid_intbase(va_arg(args, int), "0123456789", 0));
 	else if (identifier == 'u')
-		return (size + formatid_uintbase(va_arg(args, unsigned int), \
-					"0123456789", 0));
+		return (formatid_uintbase(va_arg(args, unsigned int), "0123456789", 0));
 	else if (identifier == 'x')
-		return (size + formatid_uintbase(va_arg(args, unsigned int), \
+		return (formatid_uintbase(va_arg(args, unsigned int), \
 					"0123456789abcdef", 0));
 	else if (identifier == 'X')
-		return (size + formatid_uintbase(va_arg(args, unsigned int), \
+		return (formatid_uintbase(va_arg(args, unsigned int), \
 					"0123456789ABCDEF", 0));
 	else if (identifier == '%')
-		return (size + formatid_percent());
+		return (formatid_percent());
 	else
-		return (size + formatid_unknown(identifier));
+		return (formatid_unknown(identifier));
 }
 
 int	ft_printf(const char *str, ...)
