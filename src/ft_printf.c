@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2023/11/22 02:39:15 by chlimous	       #+#    #+#	      */
-/*   Updated: 2023/12/24 01:04:10 by chlimous         ###   ########.fr       */
+/*   Updated: 2023/12/30 18:10:49 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 static int	is_percent_terminated(const char *str)
 {
-	size_t	count;
+	size_t	len;
 	size_t	i;
 
-	count = 0;
-	i = ft_strlen(str) - 1;
-	while (i != (size_t)-1)
-	{
-		if (str[i] == '%')
-			count++;
+	len = ft_strlen(str);
+	i = len - 1;
+	while (i != (size_t)-1 && str[i] == '%')
 		i--;
-	}
-	if (count % 2 == 1)
+	if ((len - 1 - i) % 2 == 1)
 		return (1);
 	return (0);
 }
