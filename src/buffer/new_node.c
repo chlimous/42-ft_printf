@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   formatid_uintbase.c                                :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chlimous <chlimous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 18:52:57 by chlimous          #+#    #+#             */
-/*   Updated: 2023/11/24 22:28:12 by chlimous         ###   ########.fr       */
+/*   Created: 2024/03/01 20:29:41 by chlimous          #+#    #+#             */
+/*   Updated: 2024/03/08 20:30:51 by chlimous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	formatid_uintbase(unsigned int nb, char *base, size_t size)
+/******************************************************************************
+ * @brief Makes a new node
+ * 
+ * @param c Character that goes in the new node
+ * @return t_node* New node
+******************************************************************************/
+t_node	*new_node(char c)
 {
-	if (nb / ft_strlen(base) != 0)
-		size = formatid_uintbase(nb / ft_strlen(base), base, size);
-	ft_putchar_fd(base[nb % ft_strlen(base)], 1);
-	return (size + 1);
+	t_node	*new;
+
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->c = c;
+	new->next = NULL;
+	return (new);
 }

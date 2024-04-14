@@ -5,8 +5,8 @@
 /*						      +:+ +:+	      +:+     */
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
-/*   Created: 2023/11/24 21:22:35 by chlimous	       #+#    #+#	      */
-/*   Updated: 2023/12/18 16:08:33 by chlimous         ###   ########.fr       */
+/*   Created: 2024/03/16 12:57:09 by chlimous	       #+#    #+#	      */
+/*   Updated: 2024/03/17 17:11:54 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -22,12 +22,23 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_isspace(int c)
 {
-	write(fd, &c, 1);
+	if (c == ' ' || (c >= 9 && c <= 13))
+		return (1);
+	return (0);
 }
 
-void	ft_putstr_fd(char *str, int fd)
+int	ft_isprint(int c)
 {
-	write(fd, str, ft_strlen(str));
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

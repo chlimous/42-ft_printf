@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   formatid_string.c                                  :+:      :+:    :+:   */
+/*   clear_buffer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chlimous <chlimous@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 18:17:53 by chlimous          #+#    #+#             */
-/*   Updated: 2023/11/24 23:08:28 by chlimous         ###   ########.fr       */
+/*   Created: 2024/03/04 17:13:55 by chlimous          #+#    #+#             */
+/*   Updated: 2024/03/08 20:14:17 by chlimous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	formatid_string(char *str)
+/******************************************************************************
+ * @brief Frees the buffer
+ * 
+ * @param buffer Buffer
+******************************************************************************/
+void	clear_buffer(t_buffer buffer)
 {
-	if (!str)
+	t_node	*current;
+	t_node	*tmp;
+
+	current = buffer.head;
+	while (current)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		tmp = current->next;
+		free(current);
+		current = tmp;
 	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
 }
