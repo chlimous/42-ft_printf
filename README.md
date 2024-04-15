@@ -6,10 +6,10 @@
 
 ## SYNOPSIS
 
-int ft_printf(const char *, ...);<br>
-int ft_dprintf(int fd, const char *str, ...);<br>
+int ft_printf(const char *format, ...);<br>
+int ft_dprintf(int fd, const char *format, ...);<br>
 int ft_vprintf(const char *format, va_list args); <br>
-int ft_vdprintf(int fd, const char *str, va_list args); <br>
+int ft_vdprintf(int fd, const char *format, va_list args); <br>
 int ft_sprintf(char *str, const char *format, ...); <br>
 int ft_snprintf(char *str, size_t size, const char *format, ...); <br>
 int ft_vsprintf(char *str, const char *format, va_list args); <br>
