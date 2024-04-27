@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/03/15 21:59:11 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/04/15 22:05:04 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/04/27 02:43:50 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ static int	add_sign(intmax_t nb, t_elem *elem, t_buffer *buffer)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-static int	handle_minus(intmax_t nb, char *base, t_elem *elem, t_buffer *buffer)
+static int	handle_minus(intmax_t nb, char *base, t_elem *elem, \
+		t_buffer *buffer)
 {
 	int	sign_len;
 
