@@ -18,9 +18,9 @@
  * @param elem Element
  * @return int Exit status
 ******************************************************************************/
-static int	check_undefined(t_elem elem)
+static int	check_undefined(t_elem *elem)
 {
-	if (elem.length != NO_LEN && elem.length != L_UP_LEN)
+	if (elem->length != NO_LEN && elem->length != L_UP_LEN)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -33,7 +33,7 @@ static int	check_undefined(t_elem elem)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-int	formatid_fe(va_list args, t_elem elem, t_buffer *buffer)
+int	formatid_fe(va_list args, t_elem *elem, t_buffer *buffer)
 {
 	long double	nb;
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*									      */
 /*							  :::	   ::::::::   */
-/*   formatid_d.c                                       :+:      :+:    :+:   */
+/*   formatid_di.c                                      :+:      :+:    :+:   */
 /*						      +:+ +:+	      +:+     */
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/02/28 17:16:40 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/03/16 17:30:37 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/04/27 01:55:38 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
  * @param elem Element
  * @return int Exit status
 ******************************************************************************/
-static int	check_undefined(t_elem elem)
+static int	check_undefined(t_elem *elem)
 {
-	if (elem.is_hash)
+	if (elem->is_hash)
 		return (EXIT_FAILURE);
-	if (elem.length == L_UP_LEN)
+	if (elem->length == L_UP_LEN)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -35,7 +35,7 @@ static int	check_undefined(t_elem elem)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-int	formatid_d(va_list args, t_elem elem, t_buffer *buffer)
+int	formatid_di(va_list args, t_elem *elem, t_buffer *buffer)
 {
 	intmax_t	nb;
 

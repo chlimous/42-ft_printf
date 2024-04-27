@@ -54,18 +54,18 @@ static int	len_exponent(long double nb)
  * @param elem 
  * @return int 
 ******************************************************************************/
-int	len_float_e(long double nb, t_elem elem)
+int	len_float_e(long double nb, t_elem *elem)
 {
 	uintmax_t	len;
 
 	len = 1;
-	if (!elem.is_dot)
+	if (!elem->is_dot)
 		len += 1 + DEF_PRCS_FLOAT;
 	else
 	{
-		if (elem.precision)
-			len += 1 + elem.precision;
-		else if (elem.precision == 0 && elem.is_hash)
+		if (elem->precision)
+			len += 1 + elem->precision;
+		else if (elem->precision == 0 && elem->is_hash)
 			len += 1;
 	}
 	len += len_exponent(nb);

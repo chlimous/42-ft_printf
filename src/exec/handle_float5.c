@@ -65,14 +65,14 @@ static int	add_exponent_digits(int exp, t_buffer *buffer)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-static int	add_exponent_part(int exp, t_elem elem, t_buffer *buffer)
+static int	add_exponent_part(int exp, t_elem *elem, t_buffer *buffer)
 {
-	if (elem.formatid == 'e')
+	if (elem->formatid == 'e')
 	{
 		if (add_node(buffer, 'e') == EXIT_FAILURE)
 			return (EXIT_FAILURE);
 	}
-	else if (elem.formatid == 'E')
+	else if (elem->formatid == 'E')
 	{
 		if (add_node(buffer, 'E') == EXIT_FAILURE)
 			return (EXIT_FAILURE);
@@ -101,7 +101,7 @@ static int	add_exponent_part(int exp, t_elem elem, t_buffer *buffer)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-int	add_float_e(long double nb, t_elem elem, t_buffer *buffer)
+int	add_float_e(long double nb, t_elem *elem, t_buffer *buffer)
 {
 	int	exp;
 
@@ -109,7 +109,7 @@ int	add_float_e(long double nb, t_elem elem, t_buffer *buffer)
 	if (add_node(buffer, BASE_10[abs_int((int)nb)]) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	nb -= (int)nb;
-	if (!(elem.is_dot && elem.precision == 0 && !elem.is_hash))
+	if (!(elem->is_dot && elem->precision == 0 && !elem->is_hash))
 	{
 		if (add_node(buffer, '.') == EXIT_FAILURE)
 			return (EXIT_FAILURE);

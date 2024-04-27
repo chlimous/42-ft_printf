@@ -50,18 +50,18 @@ static int	len_float_int(long double nb)
  * @param elem Element
  * @return int Length
 ******************************************************************************/
-int	len_float_f(long double nb, t_elem elem)
+int	len_float_f(long double nb, t_elem *elem)
 {
 	uintmax_t	len;
 
 	len = len_float_int(nb);
-	if (!elem.is_dot)
+	if (!elem->is_dot)
 		len += 1 + DEF_PRCS_FLOAT;
 	else
 	{
-		if (elem.precision)
-			len += 1 + elem.precision;
-		else if (elem.precision == 0 && elem.is_hash)
+		if (elem->precision)
+			len += 1 + elem->precision;
+		else if (elem->precision == 0 && elem->is_hash)
 			len += 1;
 	}
 	if (len < INT_MAX || (len == INT_MAX && \
@@ -110,15 +110,15 @@ static int	add_float_int(long double *nb, t_buffer *buffer)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-int	add_float_dec(long double nb, t_elem elem, t_buffer *buffer)
+int	add_float_dec(long double nb, t_elem *elem, t_buffer *buffer)
 {
 	int	precision;
 	int	digit;
 
-	if (!elem.is_dot)
+	if (!elem->is_dot)
 		precision = DEF_PRCS_FLOAT;
 	else
-		precision = elem.precision;
+		precision = elem->precision;
 	while (precision)
 	{
 		nb *= 10;
@@ -139,11 +139,11 @@ int	add_float_dec(long double nb, t_elem elem, t_buffer *buffer)
  * @param buffer Buffer pointer
  * @return int Exit status
 ******************************************************************************/
-int	add_float_f(long double nb, t_elem elem, t_buffer *buffer)
+int	add_float_f(long double nb, t_elem *elem, t_buffer *buffer)
 {
 	if (add_float_int(&nb, buffer) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (!(elem.is_dot && elem.precision == 0 && !elem.is_hash))
+	if (!(elem->is_dot && elem->precision == 0 && !elem->is_hash))
 	{
 		if (add_node(buffer, '.') == EXIT_FAILURE)
 			return (EXIT_FAILURE);
