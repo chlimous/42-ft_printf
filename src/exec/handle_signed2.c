@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/03/15 23:55:59 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/04/15 22:07:23 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/04/27 02:36:50 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	len_signed(intmax_t nb, char *base, t_elem *elem)
 	if (nb == 0 && elem->is_dot && elem->precision == 0)
 		return (0);
 	len = 1;
-	if (nb < 0)
+	if (nb == INT64_MIN)
+		tmp = (uintmax_t)INT64_MAX + 1;
+	else if (nb < 0)
 		tmp = nb * (-1);
 	else
 		tmp = nb;
@@ -80,7 +82,9 @@ int	add_signed_nb(intmax_t nb, char *base, t_elem *elem, t_buffer *buffer)
 
 	if (nb == 0 && elem->is_dot && elem->precision == 0)
 		return (EXIT_SUCCESS);
-	if (nb < 0)
+	if (nb == INT64_MIN)
+		tmp = (uintmax_t)INT64_MAX + 1;
+	else if (nb < 0)
 		tmp = nb * (-1);
 	else
 		tmp = nb;
