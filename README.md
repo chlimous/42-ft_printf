@@ -51,22 +51,23 @@ Instead of a decimal digit string one may write "*" to specify that the field wi
 ### Precision
 
 An optional precision, in the form of a period ('.')  followed by an optional decimal digit string. Instead of a decimal digit string one may write "*", to specify that the precision is given in the next argument, which must be of type <u>int</u>. If the precision is given as just '.', the precision is taken to be zero.<br>
-This gives the minimum number of digits to appear for d, i, u, o, x, X and k conversions, or the maximum number of characters to be printed from a string for s conversion.
+This gives the minimum number of digits to appear for <b>d</b>, <b>i</b>, <b>u</b>, <b>o</b>, <b>x</b>, <b>X</b>, and <b>k</b> conversions, the number of digits to appear after the radix character for <b>f</b>, <b>F</b>, <b>e</b>, and <b>E</b> conversions, or the maximum number of characters to be printed from a string for <b>s</b> conversion.
 
 ### Length modifier
 
 The length modifier modifies the length of the data type.
 
-| Length / Specifier| d i | u o x X k | c | s | p | n |
-| - | - | - | - | - | - | - |
-| (none) | int | unsigned int | int | char * | void * | int * |
-| hh | signed char | unsigned char |
-| h | short int | unsigned short int |
-| l | long int | unsigned long int | wint_t |
-| ll | long long int | unsigned long long int |
-| j | intmax_t | uintmax_t |
-| z | ssize_t | size_t |
-| t | ptrdiff_t | ptrdiff_t |
+| Length / Specifier| d i | u o x X k | f F e E | c | s | p | n |
+| - | - | - | - | - | - | - | - |
+| (none) | int | unsigned int | double | int | char * | void * | int * |
+| hh | signed char | unsigned char | | | | | signed char * |
+| h | short int | unsigned short int | | | | | short int * |
+| l | long int | unsigned long int | | wint_t | | | long int * |
+| ll | long long int | unsigned long long int | | | | | long long int * |
+| j | intmax_t | uintmax_t | | | | | intmax_t * |
+| z | ssize_t | size_t | | | | | size_t * |
+| t | ptrdiff_t | ptrdiff_t | | | | | ptrdiff_t * |
+| L | | | long double |
 
 ### Conversion specifier
 
@@ -77,7 +78,11 @@ The length modifier modifies the length of the data type.
 | o | Unsigned octal integer | <b>- 0 # .</b> |
 | x | Unsigned hexadecimal integer (lowercase) | <b>- 0 # .</b> |
 | X | Unsigned hexadecimal integer (uppercase) | <b>- 0 # .</b> |
-| k | Unsigned integer in base specified as second argument<br>(This is a custom specifier. Not POSIX-compliant.) |  <b>- 0 .</b> |
+| k | Unsigned integer in base specified as second argument<br>(This is a custom specifier. Not POSIX-compliant.) | <b>- 0 .</b> |
+| f | Floating point number (lowercase) | <b>- 0 (space) # + .</b> |
+| F | Floating point number (uppercase) | <b>- 0 (space) # + .</b> |
+| e | Floating point number, scientific notation (lowercase) | <b>- 0 (space) # + .</b> |
+| E | Floating point number, scientific notation (uppercase) | <b>- 0 (space) # + .</b> |
 | c | Character | <b>-</b> | <b>-</b> |
 | s | String | <b>- .</b> |
 | p | Pointer address | <b>-</b> |
