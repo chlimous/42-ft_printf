@@ -2,7 +2,7 @@
 
 ![ft_printf](ft_printf.png)
 
-<div align="center"><h3>Fully buffered implementation of printf / dprintf / vprintf / vdprintf / sprintf / snprintf / vsprintf / vsnprintf</h3></div>
+<div align="center"><h3>Fully buffered implementation of printf / dprintf / vprintf / vdprintf / sprintf / snprintf / vsprintf / vsnprintf / asprintf / vasprintf</h3></div>
 
 ## SYNOPSIS
 
@@ -13,15 +13,18 @@ int ft_vdprintf(int fd, const char *format, va_list args); <br>
 int ft_sprintf(char *str, const char *format, ...); <br>
 int ft_snprintf(char *str, size_t size, const char *format, ...); <br>
 int ft_vsprintf(char *str, const char *format, va_list args); <br>
-int ft_vsnprintf(char *str, size_t size, const char *format, va_list args);
+int ft_vsnprintf(char *str, size_t size, const char *format, va_list args); <br>
+int ft_asprintf(char **str, const char *format, ...); <br>
+int ft_vasprintf(char **str, const char *format, va_list args);
 
 ## DESCRIPTION
 
-The functions ft_printf() writes output to <u>stdout</u>.<br>
+The function ft_printf() writes output to <u>stdout</u>.<br>
 'd' functions write output to the given file descriptor. <br>
 'v' functions are called with a <u>va_list</u> instead of a variable number of arguments. <br>
 's' functions write to the character string <u>str</u>.<br>
 's' functions write at most <u>size</u> bytes to <u>str</u>.<br>
+'a' functions allocate memory to <u>str</u>.
 
 ### Format of the format string
 
