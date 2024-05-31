@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/02/19 14:41:02 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/04/27 01:55:55 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/05/31 02:10:31 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -190,5 +190,7 @@ int			ft_snprintf(char *str, size_t size, const char *format, ...);
 int			ft_vsprintf(char *str, const char *format, va_list args);
 int			ft_vsnprintf(char *str, size_t size, const char *format, \
 			va_list args);
+int			ft_asprintf(char **str, const char *format, ...);
+int			ft_vasprintf(char **str, const char *format, va_list args);
 
 #endif

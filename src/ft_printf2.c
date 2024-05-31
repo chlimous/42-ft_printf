@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/04/13 18:54:05 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/04/14 14:41:34 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/05/31 02:05:43 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -84,5 +84,47 @@ int	ft_vsnprintf(char *str, size_t size, const char *format, va_list args)
 	if (ft_print(&buffer, format, args) == EXIT_FAILURE)
 		return (PRINT_ERROR);
 	buffer_to_string(str, size, buffer);
+	return (buffer.size);
+}
+
+/******************************************************************************
+ * @brief Allocates memory and writes to string
+ * 
+ * @param str Output string
+ * @param format Format string
+ * @param ... Variable number of arguments
+ * @return int Amount of characters written or -1 in case of error
+******************************************************************************/
+int	ft_asprintf(char **str, const char *format, ...)
+{
+	va_list	args;
+	int		buffer_size;
+
+	va_start(args, format);
+	buffer_size = ft_vasprintf(str, format, args);
+	va_end(args);
+	return (buffer_size);
+}
+
+/******************************************************************************
+ * @brief Allocates memory and writes to string
+ * 
+ * @param str Output string
+ * @param format Format string
+ * @param args Arguments pointer
+ * @return int Amount of characters written or -1 in case of error
+******************************************************************************/
+int	ft_vasprintf(char **str, const char *format, va_list args)
+{
+	t_buffer	buffer;
+
+	if (!format)
+		return (PRINT_ERROR);
+	if (ft_print(&buffer, format, args) == EXIT_FAILURE)
+		return (PRINT_ERROR);
+	*str = malloc(sizeof(char) * (buffer.size + 1));
+	if (!*str)
+		return (PRINT_ERROR);
+	buffer_to_string(*str, (size_t)INT_MAX + 1, buffer);
 	return (buffer.size);
 }
