@@ -6,13 +6,13 @@
 #    By: chlimous <chlimous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/20 00:05:37 by chlimous          #+#    #+#              #
-#    Updated: 2024/04/27 01:55:26 by chlimous         ###   ########.fr        #
+#    Updated: 2024/05/31 02:21:38 by chlimous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRCS += $(addprefix src/, ft_printf.c ft_printf2.c utils.c utils2.c)
+SRCS += $(addprefix src/, ft_printf.c ft_printf2.c ft_printf3.c load_buffer.c utils.c utils2.c)
 SRCS += $(addprefix src/buffer/, add_back.c add_node.c buffer_to_string.c clear_buffer.c flush.c new_node.c)
 SRCS += $(addprefix src/parser/, parse_elem.c parse_flags.c set_flags.c parse_width.c parse_precision.c parse_length.c parse_formatid.c utils.c)
 SRCS += $(addprefix src/exec/, formatid_c.c formatid_s.c formatid_p.c formatid_di.c formatid_u.c formatid_x.c formatid_percent.c formatid_fe.c formatid_n.c formatid_o.c formatid_k.c utils.c handle_unsigned.c handle_unsigned2.c handle_signed.c handle_signed2.c handle_float.c handle_float2.c handle_float3.c handle_float4.c handle_float5.c)

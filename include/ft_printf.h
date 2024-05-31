@@ -25,7 +25,7 @@
 # include <stddef.h>
 # include <wchar.h>
 
-# define PRINT_ERROR -1
+# define PRINTF_ERROR -1
 
 # define NULL_MSG "(null)"
 # define NIL_MSG "(nil)"
@@ -179,7 +179,7 @@ int			fill_width(t_buffer *buffer, int amount, char filler);
 
 /* Print */
 // Buffer loader
-int			ft_print(t_buffer *buffer, const char *format, va_list args);
+int			load_buffer(t_buffer *buffer, const char *format, va_list args);
 // Print functions
 int			ft_printf(const char *format, ...);
 int			ft_dprintf(int fd, const char *format, ...);
