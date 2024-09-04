@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/02/28 17:16:40 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/03/16 17:28:49 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/09/04 18:47:39 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*check_base(char *base)
 {
 	unsigned int	i;
 
-	if (ft_strlen(base) < 2)
+	if (!base || ft_strlen(base) < 2)
 		return (NULL);
 	i = 0;
 	while (base[i])
