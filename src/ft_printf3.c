@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/05/31 02:21:13 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/05/31 02:22:13 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/09/07 01:11:12 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	ft_vasprintf(char **str, const char *format, va_list args)
 	if (load_buffer(&buffer, format, args) == EXIT_FAILURE)
 		return (PRINTF_ERROR);
 	*str = malloc(sizeof(char) * (buffer.size + 1));
-	if (!*str)
-		return (PRINTF_ERROR);
+	if (!str)
+		return (clear_buffer(buffer), PRINTF_ERROR);
 	buffer_to_string(*str, (size_t)INT_MAX + 1, buffer);
 	return (buffer.size);
 }
