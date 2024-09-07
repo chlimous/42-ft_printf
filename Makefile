@@ -6,7 +6,7 @@
 #    By: chlimous <chlimous@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/20 00:05:37 by chlimous          #+#    #+#              #
-#    Updated: 2024/05/31 02:21:38 by chlimous         ###   ########.fr        #
+#    Updated: 2024/09/07 21:19:34 by chlimous         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,12 +39,12 @@ $(NAME): $(OBJS)
 bonus: all
 
 deb: $(NAME)
-	@$(CC) main.c -I include -I libft/include -L. -lftprintf
+	@$(CC) main.c -I include -L. -lftprintf
 	@echo  "\n"
 	@./a.out
 	
 debv: $(NAME)
-	@$(CC) main.c -I include -I libft/include -L. -lftprintf
+	@$(CC) main.c -I include -L. -lftprintf
 	@echo  "\n"
 	@valgrind --leak-check=full ./a.out
 
