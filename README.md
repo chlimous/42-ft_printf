@@ -23,7 +23,7 @@ The function ft_printf() writes output to <u>stdout</u>.<br>
 'd' functions write output to the given file descriptor. <br>
 'v' functions are called with a <u>va_list</u> instead of a variable number of arguments. <br>
 's' functions write to the character string <u>str</u>.<br>
-'s' functions write at most <u>size</u> bytes to <u>str</u>.<br>
+'n' functions write at most <u>size</u> bytes to <u>str</u>.<br>
 'a' functions allocate memory to <u>str</u>.
 
 ### Format of the format string
@@ -40,7 +40,7 @@ The character % is followed by zero or more of the following flags:
 
 | Flag | Description |
 | - | - |
-| # | Used with o, x or X specifiers the value is preceeded with 0, 0x or 0X respectively for values different than zero. |
+| # | For o, x, X specifiers, the text 0, 0x, 0X, respectively, is prepended to non-zero numbers.<br> For f, F, e, E specifiers, the output always contains a decimal point.|
 | 0 | Left-pads the number with zeroes (0) instead of spaces when width is specified. |
 | - | 	Left-justify within the given field width. |
 | (space) | If no sign is going to be written, a blank space is inserted before the value. |
