@@ -43,11 +43,11 @@ int	ft_vdprintf(int fd, const char *format, va_list args)
 	t_buffer	buffer;
 
 	if (!format)
-		return (PRINTF_ERROR);
+		return (ERROR);
 	if (load_buffer(&buffer, format, args) == EXIT_FAILURE)
-		return (PRINTF_ERROR);
+		return (ERROR);
 	if (flush(buffer, fd) == EXIT_FAILURE)
-		return (PRINTF_ERROR);
+		return (ERROR);
 	return (buffer.size);
 }
 

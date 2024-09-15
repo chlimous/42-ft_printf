@@ -80,9 +80,9 @@ int	ft_vsnprintf(char *str, size_t size, const char *format, va_list args)
 	t_buffer	buffer;
 
 	if (!format)
-		return (PRINTF_ERROR);
+		return (ERROR);
 	if (load_buffer(&buffer, format, args) == EXIT_FAILURE)
-		return (PRINTF_ERROR);
+		return (ERROR);
 	buffer_to_string(str, size, buffer);
 	return (buffer.size);
 }

@@ -6,7 +6,7 @@
 /*   By: chlimous <chlimous@student.42.fr>	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2024/02/19 14:41:02 by chlimous	       #+#    #+#	      */
-/*   Updated: 2024/05/31 02:10:31 by chlimous         ###   ########.fr       */
+/*   Updated: 2024/09/15 04:09:41 by chlimous         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <stddef.h>
 # include <wchar.h>
 
-# define PRINTF_ERROR -1
+# define ERROR -1
 
 # define NULL_MSG "(null)"
 # define NIL_MSG "(nil)"
